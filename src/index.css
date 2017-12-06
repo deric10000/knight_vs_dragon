@@ -1,0 +1,43 @@
+@font-face {
+font-family: 'Atarian';
+src: url('./assets/fonts/sf-atarian-system/transfonter_atarian/SFAtarianSystem.eot'),
+     url('./assets/fonts/sf-atarian-system/transfonter_atarian/SFAtarianSystem.eot?#iefix') format('embedded-opentype'),
+     url('./assets/fonts/sf-atarian-system/transfonter_atarian/SFAtarianSystem.woff') format('woff'),
+     url('./assets/fonts/sf-atarian-system/transfonter_atarian/SFAtarianSystem.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+.game {
+  float: left;
+  background: #2A0000;
+  width: 100%;
+  font-family: "Atarian";
+  color: #fff;
+}
+
+.board {
+  float: left;
+  width: 100%;
+  background: #001919;
+}
+
+.dragon {
+  height: 50px;
+  width: 50px;
+  background: #A80000;
+  padding: 5px;
+  text-align: center;
+  position: relative;
+    left: 30px;
+}
+
+.knight {
+  height: 50px;
+  width: 50px;
+  background: #006565;
+  padding: 5px;
+  text-align: center;
+  position: relative;
+    left: 30px;
+}

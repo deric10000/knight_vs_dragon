@@ -3,7 +3,7 @@ import { Dragon } from './dragon';
 import { Knight } from './knight';
 
 export const Board = () => (
-  <div>
+  <div className="board">
     <h2>Board</h2>
     <Dragon />
     <Knight />

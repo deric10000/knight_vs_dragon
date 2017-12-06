@@ -1,5 +1,7 @@
 import React from 'react';
 
 export const Knight = () => (
-  <div>Knight</div>
+  <div className="knight">
+    <h3>Knight</h3>
+  </div>
 )
