@@ -10,6 +10,11 @@ import { Board } from './board';
 //player moves one square per round, maybe there is a collectable that allows player to move more squares
 //dragon can use attacks at will, but maybe there are attacks that the dragon can collect if left alone too long that could increase his range
 
+// git checkout master
+// git pull origin master
+// git merge test
+// git push origin master
+
 export class Game extends Component {
   render(){
     return (
