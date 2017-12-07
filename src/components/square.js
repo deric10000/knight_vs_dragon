@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Square = () => (
-  <div className="square">Square Test</div>
+export const Square = ({square}) => (
+  <div className="square">{ square }</div>
 )

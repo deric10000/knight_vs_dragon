@@ -17,15 +17,36 @@ import { Board } from './board';
 
 // git checkout master
 // git pull origin master
-// git merge test
+// git merge square
 // git push origin master
 
+const makeSquare = () => {
+  return {
+    value: 1
+  }
+}
+
+const makeSquares = () => {
+  var rows = [];
+  for (var i = 0; i < 16; i++) {
+      rows.push(makeSquare());
+  }
+  return rows;
+};
+
 export class Game extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      square: makeSquares()
+    };
+  }
+
   render(){
     return (
       <div className="game">
         <h1>Game</h1>
-        <Board />
+        <Board square={ this.state.square } />
       </div>
     )
   }

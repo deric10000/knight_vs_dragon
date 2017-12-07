@@ -28,7 +28,7 @@ font-style: normal;
   background: #A80000;
   padding: 5px;
   text-align: center;
-  position: relative;
+  position: fixed;
     left: 30px;
 }
 
@@ -38,14 +38,17 @@ font-style: normal;
   background: #006565;
   padding: 5px;
   text-align: center;
-  position: relative;
+  position: fixed;
     left: 30px;
+    top: 375px;
 }
 
 .square {
-  height: 50px;
-  width: 50px;
+  float: left;
+  height: 65px;
+  width: 65px;
   background: #9F9F9F;
   padding: 5px;
   text-align: center;
+  border: 1px solid black;
 }
