@@ -44,11 +44,19 @@ font-style: normal;
 }
 
 .square {
-  float: left;
   height: 65px;
   width: 65px;
   background: #9F9F9F;
+  border: 1px solid black;
   padding: 5px;
   text-align: center;
-  border: 1px solid black;
+}
+
+.flexcontainer {
+   display: flex;
+   width: 308px;
+   flex-direction: row;
+   justify-content: flex-start;
+   flex-wrap: wrap;
+   flex-flow: row wrap;
 }

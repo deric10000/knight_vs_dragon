@@ -8,10 +8,11 @@ export const Board = ({square}) => (
     <h2>Board</h2>
     <Dragon />
     <Knight />
-    <div>
+    <div className="flexcontainer">
       {
         square.map((square, i) =>
           <Square
+            key={ i }
             value={ square.value }
           />
         )
