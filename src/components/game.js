@@ -20,17 +20,19 @@ import { Board } from './board';
 // git merge square
 // git push origin master
 
-const makeSquare = () => {
+// right = +1, left = -1, up = -4, down = +4
+
+const makeSquare = (i) => {
   return {
-    value: 1
+    value: i
   }
 }
 
 const makeSquares = () => {
   var rows = [];
   for (var i = 0; i < 16; i++) {
-      rows.push(makeSquare());
-  }
+        rows.push(makeSquare(i));
+  };
   return rows;
 };
 
