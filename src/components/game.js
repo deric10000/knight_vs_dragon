@@ -36,11 +36,26 @@ const makeSquares = () => {
   return rows;
 };
 
+document.addEventListener('keydown', (event) => {
+  const keyName = event.key;
+  if (keyName === 'ArrowRight') {
+    console.log(keyName)
+  } else if (keyName === 'ArrowLeft') {
+    console.log(keyName)
+  } else if (keyName === 'ArrowDown') {
+    console.log(keyName)
+  } else if (keyName === 'ArrowUp') {
+    console.log(keyName)
+  } else {
+    return null;
+  }
+});
+
 export class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      square: makeSquares()
+      square: makeSquares(),
     };
   }
 
