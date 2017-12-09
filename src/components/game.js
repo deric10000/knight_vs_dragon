@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Board } from './board';
+import { movementHandler } from '../gameLogic/movementHandler'
 
 //player is the knight
 //the dragon is the enemy
@@ -36,34 +37,21 @@ const makeSquares = () => {
   return rows;
 };
 
-document.addEventListener('keydown', (event) => {
-  const keyName = event.key;
-  if (keyName === 'ArrowRight') {
-    console.log(keyName)
-  } else if (keyName === 'ArrowLeft') {
-    console.log(keyName)
-  } else if (keyName === 'ArrowDown') {
-    console.log(keyName)
-  } else if (keyName === 'ArrowUp') {
-    console.log(keyName)
-  } else {
-    return null;
-  }
-});
-
 export class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
       square: makeSquares(),
+      knightPos: 0
     };
   }
 
   render(){
     return (
       <div className="game">
+      { movementHandler() }
         <h1>Game</h1>
-        <Board square={ this.state.square } />
+        <Board square={ this.state.square } knightPos={ this.state.knightPos } />
       </div>
     )
   }
