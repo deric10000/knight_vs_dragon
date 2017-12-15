@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Board } from './board';
-import { movementHandler } from '../gameLogic/movementHandler'
+// import { movementHandler } from '../gameLogic/movementHandler'
 
 //player is the knight
 //the dragon is the enemy
@@ -44,14 +44,52 @@ export class Game extends Component {
       square: makeSquares(),
       knightPos: 0
     };
+
+    this.moveTheKnight = this.moveTheKnight.bind(this)
+  }
+
+  moveTheKnight() {
+    const movementChecker = (event) => {
+      var currentPos = this.state.knightPos
+      const key = event.keyCode
+      console.log("SOME SHIT")
+      if (key === 37) {
+        console.log("KEY: ", key);
+        this.setState({
+          knightPos: 1
+        })
+      } else if (key === 38) {
+        console.log("KEY: ", key);
+        this.setState({
+          knightPos: 2
+        })
+      } else if (key === 39) {
+        console.log("KEY: ", key);
+        this.setState({
+          knightPos: 3
+        })
+      } else if (key ===40) {
+        console.log("KEY: ", key);
+        this.setState({
+          knightPos: 4
+        })
+      } else {
+        console.log("Somethings not working")
+        return null
+      }
+    }
+    document.addEventListener('keydown', movementChecker)
   }
 
   render(){
     return (
       <div className="game">
-      { movementHandler() }
         <h1>Game</h1>
-        <Board square={ this.state.square } knightPos={ this.state.knightPos } />
+        <Board
+          square={ this.state.square }
+          knightPos={ this.state.knightPos }
+          keydown={ this.moveTheKnight() }
+        />
       </div>
     )
   }

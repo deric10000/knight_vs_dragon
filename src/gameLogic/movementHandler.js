@@ -1,21 +1,33 @@
-export const movementHandler = () => {
-  document.addEventListener('keydown', (event) => {
-    const keyName = event.key;
-    const arrowRight = () => console.log(keyName);
-    const arrowLeft = () => console.log(keyName);
-    const arrowDown = () => console.log(keyName);
-    const arrowUp = () => console.log(keyName);
+import React from 'react';
 
-    if (keyName === 'ArrowRight') {
-      return arrowRight();
-    } else if (keyName === 'ArrowLeft') {
-      return arrowLeft();
-    } else if (keyName === 'ArrowDown') {
-      return arrowDown();
-    } else if (keyName === 'ArrowUp') {
-      return arrowUp();
+export const movementHandler = () => {
+  const movementChecker = (event) => {
+    const key = event.keyCode
+    console.log("SOME SHIT")
+    if (key.value === 37) {
+      console.log("KEY: ", key);
+      this.setState({
+        knightPos: this.knightPos -= 1
+      })
+    } else if (key === 38) {
+      console.log("KEY: ", key);
+      this.setState({
+        knightPos: this.knightPos -= 4
+      })
+    } else if (key === 39) {
+      console.log("KEY: ", key);
+      this.setState({
+        knightPos: this.knightPos += 1
+      })
+    } else if (key ===40) {
+      console.log("KEY: ", key);
+      this.setState({
+        knightPos: this.knightPos += 4
+      })
     } else {
-      return null;
+      console.log("Somethings not working")
+      return null
     }
-  });
+  }
+  document.addEventListener('keydown', movementChecker)
 }
