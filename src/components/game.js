@@ -44,39 +44,40 @@ export class Game extends Component {
       square: makeSquares(),
       knightPos: 0
     };
-
-    this.moveTheKnight = this.moveTheKnight.bind(this)
+    this.moveTheKnight = this.moveTheKnight.bind(this);
   }
 
-  moveTheKnight(index) {
+  moveTheKnight() {
     const movementChecker = (event) => {
+      const key = event.keyCode;
       var currentPos = this.state.knightPos;
+      var endListener = document.removeEventListener('keydown', movementChecker);
+      var consoleLogger = { key: key, lastPos: currentPos };
 
-      const key = event.keyCode
       if (key === 37) {
-        console.log("KEY: ", key);
+        console.log(consoleLogger);
         this.setState({
           knightPos: currentPos - 1
         });
-        document.removeEventListener('keydown', movementChecker);
+        endListener;
       } else if (key === 38) {
-        console.log("KEY: ", key);
+        console.log(consoleLogger);
         this.setState({
           knightPos: currentPos - 4
         });
-        document.removeEventListener('keydown', movementChecker);
+        endListener;
       } else if (key === 39) {
-        console.log("KEY: ", key, " PROPS: ", this.state.knightPos);
+        console.log(consoleLogger);
         this.setState({
           knightPos: currentPos + 1
         });
-        document.removeEventListener('keydown', movementChecker);
+        endListener;
       } else if (key === 40) {
-        console.log("KEY: ", key);
+        console.log(consoleLogger);
         this.setState({
           knightPos: currentPos + 4
         });
-        document.removeEventListener('keydown', movementChecker);
+        endListener;
       } else {
         return null
       }
