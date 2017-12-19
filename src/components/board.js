@@ -9,9 +9,9 @@ export const Board = ({square, knightPos, keydown}) => (
         square.map((square, i) =>
           <Square
             key={ i }
-            value={ square }
+            square={ square }
             knightPos={ knightPos }
-            keydown={ () => keydown() }
+            keydown={ () => keydown }
           />
         )
       }

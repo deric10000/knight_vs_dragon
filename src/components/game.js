@@ -48,33 +48,36 @@ export class Game extends Component {
     this.moveTheKnight = this.moveTheKnight.bind(this)
   }
 
-  moveTheKnight() {
+  moveTheKnight(index) {
     const movementChecker = (event) => {
-      var currentPos = this.state.knightPos
+      var currentPos = this.state.knightPos;
+
       const key = event.keyCode
-      console.log("SOME SHIT")
       if (key === 37) {
         console.log("KEY: ", key);
         this.setState({
-          knightPos: 1
-        })
+          knightPos: currentPos - 1
+        });
+        document.removeEventListener('keydown', movementChecker);
       } else if (key === 38) {
         console.log("KEY: ", key);
         this.setState({
-          knightPos: 2
-        })
+          knightPos: currentPos - 4
+        });
+        document.removeEventListener('keydown', movementChecker);
       } else if (key === 39) {
+        console.log("KEY: ", key, " PROPS: ", this.state.knightPos);
+        this.setState({
+          knightPos: currentPos + 1
+        });
+        document.removeEventListener('keydown', movementChecker);
+      } else if (key === 40) {
         console.log("KEY: ", key);
         this.setState({
-          knightPos: 3
-        })
-      } else if (key ===40) {
-        console.log("KEY: ", key);
-        this.setState({
-          knightPos: 4
-        })
+          knightPos: currentPos + 4
+        });
+        document.removeEventListener('keydown', movementChecker);
       } else {
-        console.log("Somethings not working")
         return null
       }
     }
