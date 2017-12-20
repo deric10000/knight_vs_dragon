@@ -55,7 +55,7 @@ export class Game extends Component {
     super(props);
     this.state = {
       square: makeSquare(),
-      knightPos: {x:2,y:0}
+      knightPos: {x:0,y:0}
     };
     this.moveTheKnight = this.moveTheKnight.bind(this);
   }
