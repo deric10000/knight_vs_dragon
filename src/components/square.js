@@ -4,9 +4,7 @@ import { Knight } from './knight';
 
 export const Square = ({square, knightPos}) => (
   <div className="square" id="square">
-    {
-      square.value === knightPos ? <Knight /> : null
-    }
-    { square.value === 15 ? <Dragon /> : null }
+    { square.x === knightPos.x && square.y === knightPos.y ? <Knight /> : null }
+    { square.x === 3 && square.y === -3 ? <Dragon /> : null }
   </div>
 )
