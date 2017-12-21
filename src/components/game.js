@@ -23,14 +23,12 @@ import { Board } from './board';
 
 // right = +1, left = -1, up = -4, down = +4
 
-const makeSquare = () => {
-  return [
+let makeSquare = [
     {x:0,y:0},{x:1,y:0},{x:2,y:0},{x:3,y:0},
     {x:0,y:-1},{x:1,y:-1},{x:2,y:-1},{x:3,y:-1},
     {x:0,y:-2},{x:1,y:-2},{x:2,y:-2},{x:3,y:-2},
     {x:0,y:-3},{x:1,y:-3},{x:2,y:-3},{x:3,y:-3}
-  ]
-}
+  ];
 
 // const makeSquares = () => {
 //   var rows = [];
@@ -54,7 +52,7 @@ export class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      square: makeSquare(),
+      square: makeSquare,
       knightPos: {x:0,y:0}
     };
     this.moveTheKnight = this.moveTheKnight.bind(this);
@@ -65,30 +63,83 @@ export class Game extends Component {
       const key = event.keyCode;
       var currentX = this.state.knightPos.x;
       var currentY = this.state.knightPos.y;
+      var edge = makeSquare.length - 1;
       var consoleLogger = { key: key, lastPos: currentX, currentY };
 
-      if (key === 37) {
+      const moveLeft = () => {
         console.log(consoleLogger);
-        this.setState({
-          knightPos: {x: currentX - 1, y: currentY }
-        });
-      } else if (key === 38) {
+        if (currentX - 1 < 0) {
+          console.log("CANT MOVE LEFT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else {
+          this.setState({
+            knightPos: {x: currentX - 1, y: currentY }
+          });
+        }
+      }
+
+      const moveUp = () => {
         console.log(consoleLogger);
-        this.setState({
-          knightPos: {x: currentX, y: currentY + 1 }
-        });
-      } else if (key === 39) {
+        if (currentY + 1 > 0) {
+          console.log("CANT MOVE UP")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else {
+          console.log(consoleLogger);
+          this.setState({
+            knightPos: {x: currentX, y: currentY + 1 }
+          });
+        }
+      }
+
+      const moveRight = () => {
         console.log(consoleLogger);
-        this.setState({
-          knightPos: {x: currentX + 1, y: currentY }
-        });
-      } else if (key === 40) {
+        if (currentX + 1 > makeSquare[edge].x) {
+          console.log("CANT MOVE RIGHT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else {
+          console.log(consoleLogger);
+          this.setState({
+            knightPos: {x: currentX + 1, y: currentY }
+          });
+        }
+      }
+
+      const moveDown = () => {
         console.log(consoleLogger);
-        this.setState({
-          knightPos: {x: currentX, y: currentY - 1 }
-        });
-      } else {
-        return null
+        if (currentY - 1 < makeSquare[edge].y) {
+          console.log("CANT MOVE DOWN")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else {
+          console.log(consoleLogger);
+          this.setState({
+            knightPos: {x: currentX, y: currentY - 1 }
+          });
+        }
+      }
+
+      switch (key) {
+        case 37:
+          moveLeft();
+          break;
+        case 38:
+          moveUp();
+          break;
+        case 39:
+          moveRight();
+          break;
+        case 40:
+          moveDown();
+          break;
+        default:
+          return null;
       }
       document.removeEventListener('keydown', movementChecker);
     }
