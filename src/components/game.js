@@ -30,24 +30,6 @@ let makeSquare = [
     {x:0,y:-3},{x:1,y:-3},{x:2,y:-3},{x:3,y:-3}
   ];
 
-// const makeSquares = () => {
-//   var rows = [];
-//   console.log(rows)
-//   for (var x = 0, y = 0; x < 4; x++) {
-//         rows.push(makeSquare(x, y));
-//   };
-//   for (var x = 0, y = -1; x < 4; x++) {
-//         rows.push(makeSquare(x, y));
-//   };
-//   for (var x = 0, y = -2; x < 4; x++) {
-//         rows.push(makeSquare(x, y));
-//   };
-//   for (var x = 0, y = -3; x < 4; x++) {
-//         rows.push(makeSquare(x, y));
-//   };
-//   return rows;
-// };
-
 export class Game extends Component {
   constructor(props) {
     super(props);
