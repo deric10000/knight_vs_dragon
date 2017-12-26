@@ -131,7 +131,7 @@ export class Game extends Component {
   render(){
     return (
       <div className="game">
-        <h1>Game</h1>
+        <h1>Knight VS Dragon</h1>
         <Board
           square={ this.state.square }
           knightPos={ this.state.knightPos }

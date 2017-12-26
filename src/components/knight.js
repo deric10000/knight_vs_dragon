@@ -2,6 +2,6 @@ import React from 'react';
 
 export const Knight = () => (
   <div className="knight" id="knight">
-    <h3>Knight</h3>
+    <img src={require("../assets/knightThree.png")} alt="KNIGHT"></img>
   </div>
 )

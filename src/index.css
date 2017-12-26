@@ -10,16 +10,16 @@ font-style: normal;
 
 .game {
   float: left;
-  background: #2A0000;
+  background: #480A0A;
   width: 100%;
   font-family: "Atarian";
+  text-align: center;
   color: #fff;
 }
 
 .board {
-  float: left;
   width: 100%;
-  background: #001919;
+  background: #083A08;
 }
 
 .dragon {
@@ -30,20 +30,16 @@ font-style: normal;
   text-align: center;
 }
 
-.knight {
-  height: 50px;
-  width: 50px;
-  background: #006565;
-  padding: 5px;
-  text-align: center;
+.knight img {
+  height: 65px
 }
 
 .square {
-  height: 65px;
-  width: 65px;
-  background: #9F9F9F;
-  border: 1px solid #001919;
-  padding: 5px;
+  float: left;
+  height: 70px;
+  width: 70px;
+  background: #185818;
+  margin: 1px;
   text-align: center;
   border-radius: 10px;
 }
