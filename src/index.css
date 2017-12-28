@@ -22,16 +22,12 @@ font-style: normal;
   background: #083A08;
 }
 
-.dragon {
-  height: 50px;
-  width: 50px;
-  background: #A80000;
-  padding: 5px;
-  text-align: center;
+.dragon img {
+  height: 100%;
 }
 
 .knight img {
-  height: 65px
+  height: 100%;
 }
 
 .square {
