@@ -9,7 +9,7 @@ font-style: normal;
 }
 
 .game {
-  float: left;
+  display: table;
   background:  #083A08;
   width: 100%;
   font-family: "Atarian";
@@ -24,7 +24,8 @@ header {
 }
 
 .board {
-  width: 100%;
+  display: table;
+  margin: auto;
   background: #083A08;
 }
 
@@ -49,6 +50,7 @@ header {
 .hitpoints {
   display: table;
   text-align: center;
+  margin: auto;
 }
 
 .hitpoints h3 {
@@ -82,7 +84,7 @@ header {
 
 .flexcontainer {
    display: flex;
-   width: 308px;
+   width: 288px;
    flex-direction: row;
    justify-content: flex-start;
    flex-wrap: wrap;
