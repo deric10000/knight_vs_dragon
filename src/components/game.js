@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Board } from './board';
+import { HitPoints } from './hitpoints';
 // import { movementHandler } from '../gameLogic/movementHandler'
 
 //player is the knight
@@ -35,7 +36,9 @@ export class Game extends Component {
     super(props);
     this.state = {
       square: makeSquare,
-      knightPos: {x:0,y:0}
+      knightPos: {x:0,y:0},
+      knightHealth: 30,
+      dragonHealth: 100
     };
     this.moveTheKnight = this.moveTheKnight.bind(this);
   }
@@ -131,7 +134,13 @@ export class Game extends Component {
   render(){
     return (
       <div className="game">
-        <h1>Knight VS Dragon</h1>
+        <header>
+          <h1>Knight VS Dragon</h1>
+        </header>
+        <HitPoints
+          knightHP={this.state.knightHealth}
+          dragonHP={this.state.dragonHealth}
+        />
         <Board
           square={ this.state.square }
           knightPos={ this.state.knightPos }
