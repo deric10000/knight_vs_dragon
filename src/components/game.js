@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Board } from './board';
 import { HitPoints } from './hitpoints';
+import { Attacks } from './attacks'
 // import { movementHandler } from '../gameLogic/movementHandler'
 
 //player is the knight
@@ -146,6 +147,7 @@ export class Game extends Component {
           knightPos={ this.state.knightPos }
           keydown={ this.moveTheKnight() }
         />
+        <Attacks />
       </div>
     )
   }
