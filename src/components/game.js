@@ -39,9 +39,11 @@ export class Game extends Component {
       square: makeSquare,
       knightPos: {x:0,y:0},
       knightHealth: 30,
-      dragonHealth: 100
+      dragonHealth: 100,
+      clickedAttackList: false
     };
     this.moveTheKnight = this.moveTheKnight.bind(this);
+    this.toggleAttackList = this.toggleAttackList.bind(this);
   }
 
   moveTheKnight() {
@@ -132,6 +134,18 @@ export class Game extends Component {
     document.addEventListener('keydown', movementChecker)
   }
 
+  toggleAttackList() {
+    if (this.state.clickedAttackList === false) {
+      this.setState({
+        clickedAttackList: true
+      })
+    } else {
+      this.setState({
+        clickedAttackList: false
+      })
+    }
+  }
+
   render(){
     return (
       <div className="game">
@@ -147,7 +161,10 @@ export class Game extends Component {
           knightPos={ this.state.knightPos }
           keydown={ this.moveTheKnight() }
         />
-        <Attacks />
+        <Attacks
+          toggleAttackList={ this.toggleAttackList }
+          clickedAttackList={ this.state.clickedAttackList }
+        />
       </div>
     )
   }
