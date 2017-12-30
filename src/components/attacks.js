@@ -1,23 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right';
 import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left';
 
-export const Attacks = ({toggleAttackList, clickedAttackList}) => (
-  <div className="attacks">
-    <h3>Attacks &nbsp;
-      {
-        clickedAttackList === true ?
-          <div id="attackList">
-            <FaArrowCircleLeft className="icons" id="attacksClose" onClick={ toggleAttackList } />
-              <div className="attackElement" id="basicAttack"></div>
-              <div className="attackElement"></div>
-              <div className="attackElement"></div>
-              <div className="attackElement"></div>
-              <div className="attackElement"></div>
-          </div>
-          :
-          <FaArrowCircleRight className="icons" id="attacksOpen" onClick={ toggleAttackList } />
-      }
-    </h3>
-  </div>
-)
+export class Attacks extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clickedAttackList: false
+    };
+    this.toggleAttackList = this.toggleAttackList.bind(this);
+  }
+
+  toggleAttackList() {
+    if (this.state.clickedAttackList === false) {
+      this.setState({
+        clickedAttackList: true
+      })
+    } else {
+      this.setState({
+        clickedAttackList: false
+      })
+    }
+  }
+
+  render() {
+      return (
+      <div className="attacks">
+        <h3>Attacks &nbsp;
+          {
+            this.state.clickedAttackList === true ?
+              <div id="attackList">
+                <FaArrowCircleLeft className="icons" id="attacksClose" onClick={ this.toggleAttackList } />
+                  <div className="attackElement" id="basicAttack"></div>
+                  <div className="attackElement"></div>
+                  <div className="attackElement"></div>
+                  <div className="attackElement"></div>
+                  <div className="attackElement"></div>
+              </div>
+              :
+              <FaArrowCircleRight className="icons" id="attacksOpen" onClick={ this.toggleAttackList } />
+          }
+        </h3>
+      </div>
+    )
+  }
+}
