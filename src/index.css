@@ -117,6 +117,13 @@ header {
    flex-flow: row wrap;
 }
 
+.availableMove {
+  height: 50px;
+  width: 100% auto;
+  border-radius: 10px;
+  border: 10px solid #32CD32;
+}
+
 /* ICONS */
 .icons {
 
