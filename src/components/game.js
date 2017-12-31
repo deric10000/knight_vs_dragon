@@ -238,7 +238,7 @@ export class Game extends Component {
         <Board
           square={ this.state.square }
           knightPos={ this.state.knightPos }
-          keydown={ this.moveTheKnight() }
+          keydown={ this.state.knightIsActive ? this.moveTheKnight() : null }
           knightIsActive={ this.state.knightIsActive }
         />
         <Attacks />
