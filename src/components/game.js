@@ -39,6 +39,7 @@ export class Game extends Component {
       square: makeSquare,
       knightPos: {x:0,y:0},
       knightHealth: 30,
+      knightIsActive: true,
       dragonHealth: 100
     };
     this.moveTheKnight = this.moveTheKnight.bind(this);
@@ -238,6 +239,7 @@ export class Game extends Component {
           square={ this.state.square }
           knightPos={ this.state.knightPos }
           keydown={ this.moveTheKnight() }
+          knightIsActive={ this.state.knightIsActive }
         />
         <Attacks />
       </div>

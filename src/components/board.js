@@ -1,7 +1,7 @@
 import React from 'react';
 import { Square } from './square';
 
-export const Board = ({square, knightPos, keydown}) => (
+export const Board = ({square, knightPos, keydown, knightIsActive}) => (
   <div className="board">
     <div className="flexcontainer">
       {
@@ -11,6 +11,7 @@ export const Board = ({square, knightPos, keydown}) => (
             square={ square }
             knightPos={ knightPos }
             keydown={ () => keydown }
+            knightIsActive={ knightIsActive }
           />
         )
       }
