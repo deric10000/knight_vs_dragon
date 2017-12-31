@@ -118,10 +118,10 @@ header {
 }
 
 .availableMove {
-  height: 50px;
+  height: 66px;
   width: 100% auto;
   border-radius: 10px;
-  border: 10px solid #32CD32;
+  border: 3px solid #00FF00;
 }
 
 /* ICONS */
