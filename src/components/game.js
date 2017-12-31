@@ -111,6 +111,86 @@ export class Game extends Component {
         }
       }
 
+      const moveDownRight = () => {
+        console.log(consoleLogger);
+        if (currentY - 1 < makeSquare[edge].y) {
+          console.log("CANT MOVE DOWN RIGHT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else if (currentX + 1 > makeSquare[edge].x) {
+          console.log("CANT MOVE DOWN RIGHT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else {
+          console.log(consoleLogger);
+          this.setState({
+            knightPos: {x: currentX + 1, y: currentY - 1 }
+          });
+        }
+      }
+
+      const moveUpRight = () => {
+        console.log(consoleLogger);
+        if (currentY + 1 > 0) {
+          console.log("CANT MOVE UP RIGHT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else if (currentX + 1 > makeSquare[edge].x) {
+          console.log("CANT MOVE UP RIGHT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else {
+          console.log(consoleLogger);
+          this.setState({
+            knightPos: {x: currentX + 1, y: currentY + 1 }
+          });
+        }
+      }
+
+      const moveDownLeft = () => {
+        console.log(consoleLogger);
+        if (currentY - 1 < makeSquare[edge].y) {
+          console.log("CANT MOVE DOWN LEFT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else if (currentX - 1 < 0) {
+          console.log("CANT MOVE DOWN LEFT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else {
+          console.log(consoleLogger);
+          this.setState({
+            knightPos: {x: currentX - 1, y: currentY - 1 }
+          });
+        }
+      }
+
+      const moveUpLeft = () => {
+        console.log(consoleLogger);
+        if (currentY + 1 > 0) {
+          console.log("CANT MOVE UP LEFT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else if (currentX - 1 < 0) {
+          console.log("CANT MOVE UP LEFT")
+          this.setState({
+            knightPos: {x: currentX, y: currentY }
+          });
+        } else {
+          console.log(consoleLogger);
+          this.setState({
+            knightPos: {x: currentX - 1, y: currentY + 1 }
+          });
+        }
+      }
+
       switch (key) {
         case 37:
           moveLeft();
@@ -123,6 +203,18 @@ export class Game extends Component {
           break;
         case 40:
           moveDown();
+          break;
+        case 65:
+          moveDownRight();
+          break;
+        case 66:
+          moveDownLeft();
+          break;
+        case 67:
+          moveUpLeft();
+          break;
+        case 68:
+          moveUpRight();
           break;
         default:
           return null;
