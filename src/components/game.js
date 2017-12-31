@@ -40,9 +40,16 @@ export class Game extends Component {
       knightPos: {x:0,y:0},
       knightHealth: 30,
       knightIsActive: true,
-      dragonHealth: 100
+      countKnightHasMoved: 0,
+      countKnightHasAttacked: 1,
+      countKnightHasUsedItem: 1,
+      dragonHealth: 100,
+      countDragonMove: 0,
+      countDragonAttack: 0,
+      countRounds: 1
     };
     this.moveTheKnight = this.moveTheKnight.bind(this);
+    this.roundController = this.roundController.bind(this);
   }
 
   moveTheKnight() {
@@ -52,6 +59,7 @@ export class Game extends Component {
       var currentY = this.state.knightPos.y;
       var edge = makeSquare.length - 1;
       var consoleLogger = { key: key, lastPos: currentX, currentY };
+      this.roundController(1,0,0);
 
       const moveLeft = () => {
         console.log(consoleLogger);
@@ -222,7 +230,23 @@ export class Game extends Component {
       }
       document.removeEventListener('keydown', movementChecker);
     }
-    document.addEventListener('keydown', movementChecker)
+    document.addEventListener('keydown', movementChecker);
+  }
+
+  roundController(knightMove, knightAttack, knightItem) {
+    var hasMoved = this.state.countKnightHasMoved;
+    var hasAttacked = this.state.countKnightHasAttacked;
+    var hasUsedItem = this.state.countKnightHasUsedItem;
+    var round = this.state.countRounds;
+
+    (hasMoved + knightMove > 0) &&
+    (hasAttacked + knightAttack > 0) &&
+    (hasUsedItem + knightItem > 0)
+    ? this.setState({
+      knightIsActive: false,
+      countRounds: round
+    })
+    : console.log('error');
   }
 
   render(){
@@ -230,6 +254,7 @@ export class Game extends Component {
       <div className="game">
         <header>
           <h1>Knight VS Dragon</h1>
+          <h3>Round: { this.state.countRounds }</h3>
         </header>
         <HitPoints
           knightHP={this.state.knightHealth}
