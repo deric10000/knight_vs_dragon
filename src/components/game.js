@@ -47,8 +47,6 @@ export class Game extends Component {
       countDragonHasMoved: 1,
       countDragonHasAttacked: 1,
       countDragonHasUsedItem: 1,
-      countDragonMove: 0,
-      countDragonAttack: 0,
       countRounds: 1
     };
     this.moveTheKnight = this.moveTheKnight.bind(this);
