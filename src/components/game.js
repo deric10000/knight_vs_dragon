@@ -189,7 +189,7 @@ export class Game extends Component {
         }
       }
 
-      const confirm = (one, zero, zero2) => {
+      const confirm = () => {
         this.setState({
           lastKnightPos: {x: currentX, y: currentY}
         });
