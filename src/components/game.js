@@ -38,6 +38,7 @@ export class Game extends Component {
     this.state = {
       square: makeSquare,
       knightPos: {x:0,y:0},
+      lastKnightPos: {x:0,y:0},
       knightHealth: 30,
       knightIsActive: true,
       countKnightHasMoved: 0,
@@ -188,8 +189,11 @@ export class Game extends Component {
         }
       }
 
-      const confirm = () => {
-          return this.roundControllerKnight(1,0,0);
+      const confirm = (one, zero, zero2) => {
+        this.setState({
+          lastKnightPos: {x: currentX, y: currentY}
+        });
+        this.roundControllerKnight(1,0,0);
       }
 
       switch (key) {
@@ -258,14 +262,15 @@ export class Game extends Component {
     : console.log(dragonHasMoved, dragonHasAttacked, dragonHasUsedItem, 'error with dragon');
   }
 
-  temporaryDragonTurn() {
-    //replace this function with dragon AI functionality
-    const movementChecker = () => {
-      this.roundControllerDragon(1,1,1);
-      document.removeEventListener('click', movementChecker);
+    temporaryDragonTurn() {
+      //replace this function with dragon AI functionality
+      const movementChecker = (event) => {
+        event.preventDefault();
+        this.roundControllerDragon(1,1,1);
+        document.removeEventListener('click', movementChecker);
+      }
+    document.addEventListener('click', movementChecker);
     }
-  document.addEventListener('click', movementChecker);
-  }
 
   render(){
     return (
@@ -281,6 +286,7 @@ export class Game extends Component {
         <Board
           square={ this.state.square }
           knightPos={ this.state.knightPos }
+          lastKnightPos={this.state.lastKnightPos}
           keydown={ this.state.knightIsActive ? this.moveTheKnight() : null }
           knightIsActive={ this.state.knightIsActive }
         />
