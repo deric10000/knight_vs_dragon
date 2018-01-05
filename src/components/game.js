@@ -57,12 +57,12 @@ export class Game extends Component {
 
   moveTheKnight() {
     const movementChecker = (event) => {
+      event.preventDefault();
       const key = event.keyCode;
       var currentX = this.state.knightPos.x;
       var currentY = this.state.knightPos.y;
       var edge = makeSquare.length - 1;
       var consoleLogger = { key: key, lastPos: currentX, currentY };
-      this.roundControllerKnight(1,0,0);
 
       const moveLeft = () => {
         if (currentX - 1 < 0) {
@@ -188,6 +188,10 @@ export class Game extends Component {
         }
       }
 
+      const confirm = () => {
+          return this.roundControllerKnight(1,0,0);
+      }
+
       switch (key) {
         case 37:
           moveLeft();
@@ -212,6 +216,9 @@ export class Game extends Component {
           break;
         case 68:
           moveUpRight();
+          break;
+        case 13:
+          confirm();
           break;
         default:
           return null;
