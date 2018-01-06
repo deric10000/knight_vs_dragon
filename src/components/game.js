@@ -308,16 +308,12 @@ export class Game extends Component {
     : console.log(dragonHasMoved, dragonHasAttacked, dragonHasUsedItem, 'error with dragon');
   }
 
-  temporaryDragonTurn() {
+  temporaryDragonTurn(event) {
+    event.preventDefault();
     //replace this function with dragon AI functionality
-    const movementChecker = (event) => {
-      event.preventDefault();
-      this.setState(() => {
-        return this.roundControllerDragon(1,1,1); 
-      });
-      document.removeEventListener('click', movementChecker);
-    }
-  document.addEventListener('click', movementChecker);
+    this.setState(() => {
+      return this.roundControllerDragon(1,1,1);
+    });
   }
 
   render(){
@@ -339,7 +335,7 @@ export class Game extends Component {
           knightIsActive={ this.state.knightIsActive }
         />
         <Attacks />
-        <button id="temporaryBtn" onClick={ () => this.temporaryDragonTurn() }>Dragon Turn</button>
+        <button id="temporaryBtn" onClick={ this.temporaryDragonTurn }>Dragon Turn</button>
       </div>
     )
   }
