@@ -91,8 +91,10 @@ export class Game extends Component {
             }
           });
         } else {
-          this.setState({
-            knightPos: {x: currentX, y: currentY + 1 }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY + 1 }
+            }
           });
         }
       }
@@ -100,12 +102,16 @@ export class Game extends Component {
       const moveRight = () => {
         if (currentX + 1 > makeSquare[edge].x) {
           console.log("CANT MOVE RIGHT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else {
-          this.setState({
-            knightPos: {x: currentX + 1, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX + 1, y: currentY }
+            }
           });
         }
       }
@@ -113,12 +119,16 @@ export class Game extends Component {
       const moveDown = () => {
         if (currentY - 1 < makeSquare[edge].y) {
           console.log("CANT MOVE DOWN")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else {
-          this.setState({
-            knightPos: {x: currentX, y: currentY - 1 }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY - 1 }
+            }
           });
         }
       }
@@ -126,17 +136,23 @@ export class Game extends Component {
       const moveDownRight = () => {
         if (currentY - 1 < makeSquare[edge].y) {
           console.log("CANT MOVE DOWN RIGHT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else if (currentX + 1 > makeSquare[edge].x) {
           console.log("CANT MOVE DOWN RIGHT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else {
-          this.setState({
-            knightPos: {x: currentX + 1, y: currentY - 1 }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX + 1, y: currentY - 1 }
+            }
           });
         }
       }
@@ -144,17 +160,23 @@ export class Game extends Component {
       const moveUpRight = () => {
         if (currentY + 1 > 0) {
           console.log("CANT MOVE UP RIGHT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else if (currentX + 1 > makeSquare[edge].x) {
           console.log("CANT MOVE UP RIGHT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else {
-          this.setState({
-            knightPos: {x: currentX + 1, y: currentY + 1 }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX + 1, y: currentY + 1 }
+            }
           });
         }
       }
@@ -162,17 +184,23 @@ export class Game extends Component {
       const moveDownLeft = () => {
         if (currentY - 1 < makeSquare[edge].y) {
           console.log("CANT MOVE DOWN LEFT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else if (currentX - 1 < 0) {
           console.log("CANT MOVE DOWN LEFT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else {
-          this.setState({
-            knightPos: {x: currentX - 1, y: currentY - 1 }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX - 1, y: currentY - 1 }
+            }
           });
         }
       }
@@ -180,17 +208,23 @@ export class Game extends Component {
       const moveUpLeft = () => {
         if (currentY + 1 > 0) {
           console.log("CANT MOVE UP LEFT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else if (currentX - 1 < 0) {
           console.log("CANT MOVE UP LEFT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else {
-          this.setState({
-            knightPos: {x: currentX - 1, y: currentY + 1 }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX - 1, y: currentY + 1 }
+            }
           });
         }
       }
@@ -198,7 +232,9 @@ export class Game extends Component {
       const confirm = () => {
         this.setState(() => {
           this.roundControllerKnight(1,0,0);
-          return {lastKnightPos: {x: currentX, y: currentY }};
+          return {
+            lastKnightPos: {x: currentX, y: currentY }
+          };
         });
       }
 
@@ -246,8 +282,10 @@ export class Game extends Component {
     (knightHasMoved + knightMove > 0) &&
     (knightHasAttacked + knightAttack > 0) &&
     (knightHasUsedItem + knightItem > 0)
-    ? this.setState({
-      knightIsActive: false,
+    ? this.setState(() => {
+      return {
+        knightIsActive: false
+      }
     })
     : console.log('error with knight');
   }
@@ -261,9 +299,11 @@ export class Game extends Component {
     (dragonHasMoved > 0) &&
     (dragonHasAttacked > 0) &&
     (dragonHasUsedItem > 0)
-    ? this.setState({
-      knightIsActive: true,
-      countRounds: round + 1
+    ? this.setState(() => {
+      return {
+        knightIsActive: true,
+        countRounds: round + 1
+      }
     })
     : console.log(dragonHasMoved, dragonHasAttacked, dragonHasUsedItem, 'error with dragon');
   }
@@ -272,7 +312,9 @@ export class Game extends Component {
     //replace this function with dragon AI functionality
     const movementChecker = (event) => {
       event.preventDefault();
-      this.roundControllerDragon(1,1,1);
+      this.setState(() => {
+        return this.roundControllerDragon(1,1,1); 
+      });
       document.removeEventListener('click', movementChecker);
     }
   document.addEventListener('click', movementChecker);

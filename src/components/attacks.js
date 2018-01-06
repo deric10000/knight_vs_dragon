@@ -13,12 +13,16 @@ export class Attacks extends Component {
 
   toggleAttackList() {
     if (this.state.clickedAttackList === false) {
-      this.setState({
-        clickedAttackList: true
+      this.setState(() => {
+        return {
+          clickedAttackList: true
+        }
       })
     } else {
-      this.setState({
-        clickedAttackList: false
+      this.setState(() => {
+        return {
+          clickedAttackList: false
+        }
       })
     }
   }
