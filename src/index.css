@@ -108,6 +108,32 @@ header {
   border-radius: 4px;
 }
 
+.items {
+  display: table;
+  margin: auto;
+  margin-top: 10px;
+  width: 288px;
+}
+
+.items h3 {
+  display: table-cell;
+  text-align: left;
+}
+
+#itemList {
+  display: inline-block;
+}
+
+.itemElement {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+  background: #185818;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
 .flexcontainer {
    display: flex;
    width: 288px;
@@ -125,14 +151,3 @@ header {
 }
 
 /* ICONS */
-.icons {
-
-}
-
-#attacksOpen {
-
-}
-
-#attacksClose {
-
-}
