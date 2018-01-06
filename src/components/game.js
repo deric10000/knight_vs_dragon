@@ -68,12 +68,16 @@ export class Game extends Component {
       const moveLeft = () => {
         if (currentX - 1 < 0) {
           console.log("CANT MOVE LEFT")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else {
-          this.setState({
-            knightPos: {x: currentX - 1, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX - 1, y: currentY }
+            }
           });
         }
       }
@@ -81,8 +85,10 @@ export class Game extends Component {
       const moveUp = () => {
         if (currentY + 1 > 0) {
           console.log("CANT MOVE UP")
-          this.setState({
-            knightPos: {x: currentX, y: currentY }
+          this.setState(() => {
+            return {
+              knightPos: {x: currentX, y: currentY }
+            }
           });
         } else {
           this.setState({
@@ -190,10 +196,10 @@ export class Game extends Component {
       }
 
       const confirm = () => {
-        this.setState({
-          lastKnightPos: {x: currentX, y: currentY}
+        this.setState(() => {
+          this.roundControllerKnight(1,0,0);
+          return {lastKnightPos: {x: currentX, y: currentY }};
         });
-        this.roundControllerKnight(1,0,0);
       }
 
       switch (key) {
@@ -262,15 +268,15 @@ export class Game extends Component {
     : console.log(dragonHasMoved, dragonHasAttacked, dragonHasUsedItem, 'error with dragon');
   }
 
-    temporaryDragonTurn() {
-      //replace this function with dragon AI functionality
-      const movementChecker = (event) => {
-        event.preventDefault();
-        this.roundControllerDragon(1,1,1);
-        document.removeEventListener('click', movementChecker);
-      }
-    document.addEventListener('click', movementChecker);
+  temporaryDragonTurn() {
+    //replace this function with dragon AI functionality
+    const movementChecker = (event) => {
+      event.preventDefault();
+      this.roundControllerDragon(1,1,1);
+      document.removeEventListener('click', movementChecker);
     }
+  document.addEventListener('click', movementChecker);
+  }
 
   render(){
     return (
