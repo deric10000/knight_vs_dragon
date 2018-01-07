@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BasicAttack, BasicDefend } from './availableAttacks';
 import FaArrowCircleRight from 'react-icons/lib/fa/arrow-circle-right';
 import FaArrowCircleLeft from 'react-icons/lib/fa/arrow-circle-left';
 
@@ -35,8 +36,12 @@ export class Attacks extends Component {
             this.state.clickedAttackList === true ?
               <div id="attackList">
                 <FaArrowCircleLeft className="icons" id="attacksClose" onClick={ this.toggleAttackList } />
-                  <div className="attackElement" id="basicAttack"></div>
-                  <div className="attackElement"></div>
+                  <div className="attackElement" id="basicAttack">
+                    <BasicAttack />
+                  </div>
+                  <div className="attackElement">
+                    <BasicDefend />
+                  </div>
                   <div className="attackElement"></div>
                   <div className="attackElement"></div>
                   <div className="attackElement"></div>

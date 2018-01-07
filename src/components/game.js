@@ -48,7 +48,7 @@ export class Game extends Component {
       const key = event.keyCode;
       var currentX = this.state.knightPos.x;
       var currentY = this.state.knightPos.y;
-      var edge = makeSquare.length - 1;
+      var edge = this.state.square.length - 1;
       var consoleLogger = { key: key, lastPos: currentX, currentY };
 
       const moveLeft = () => {
