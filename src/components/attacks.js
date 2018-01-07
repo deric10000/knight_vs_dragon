@@ -37,7 +37,10 @@ export class Attacks extends Component {
               <div id="attackList">
                 <FaArrowCircleLeft className="icons" id="attacksClose" onClick={ this.toggleAttackList } />
                   <div className="attackElement" id="basicAttack">
-                    <BasicAttack knightBasicAttack={ this.props.knightBasicAttack } />
+                    <BasicAttack
+                      knightBasicAttack={ this.props.knightBasicAttack }
+                      knightHasAttacked={ this.props.knightHasAttacked }
+                    />
                   </div>
                   <div className="attackElement">
                     <BasicDefend />

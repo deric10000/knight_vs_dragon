@@ -2,9 +2,11 @@ import React from 'react';
 import FaShield from 'react-icons/lib/fa/shield';
 import MdFlashAuto from 'react-icons/lib/md/flash-auto'
 
-export const BasicAttack = ({ knightBasicAttack }) => (
+export const BasicAttack = ({ knightBasicAttack, knightHasAttacked }) => (
   <div className="availableAttacks">
-    <MdFlashAuto className="icons" id="attacksClose" onClick={ () => knightBasicAttack() } />
+    <MdFlashAuto className="icons" id="attacksClose"
+      onClick={ () => knightBasicAttack() } 
+    />
   </div>
 )
 

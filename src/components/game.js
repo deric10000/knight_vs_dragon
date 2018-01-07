@@ -46,12 +46,18 @@ export class Game extends Component {
   knightBasicAttack() {
     const knightDoesDamage = () => {
       var hit = Math.floor(Math.random() * (6 - 1)) + 1;
-      var damage = Math.floor(Math.random() * (10 - 1)) + 1;
+      var damage = Math.floor(Math.random() * (20 - 5)) + 5;
+      var currentDragonHP = this.state.dragonHealth;
 
       if (hit > 2) {
-        console.log(hit + " KNIGHT HITS AND DEALS " + damage + " DAMAGE")
+        this.setState(() => {
+          return {
+            dragonHealth: currentDragonHP - damage,
+            countKnightHasAttacked: 1
+          }
+        })
       } else {
-        console.log(hit + " KNIGHT MISSES!")
+        console.log("KNIGHT MISSES!")
       }
     }
     return knightDoesDamage();
@@ -234,7 +240,8 @@ export class Game extends Component {
         this.setState(() => {
           this.roundControllerKnight(1,0,0);
           return {
-            lastKnightPos: {x: currentX, y: currentY }
+            lastKnightPos: {x: currentX, y: currentY },
+            knightHasMoved: 1
           };
         });
       }
@@ -337,6 +344,7 @@ export class Game extends Component {
         />
         <Attacks
           knightBasicAttack={ this.knightBasicAttack }
+          knightHasAttacked={ this.state.countKnightHasAttacked }
         />
         <Items />
         <button id="temporaryBtn" onClick={ this.temporaryDragonTurn }>Dragon Turn</button>
