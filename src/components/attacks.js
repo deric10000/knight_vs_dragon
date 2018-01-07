@@ -37,7 +37,7 @@ export class Attacks extends Component {
               <div id="attackList">
                 <FaArrowCircleLeft className="icons" id="attacksClose" onClick={ this.toggleAttackList } />
                   <div className="attackElement" id="basicAttack">
-                    <BasicAttack />
+                    <BasicAttack knightBasicAttack={ this.props.knightBasicAttack } />
                   </div>
                   <div className="attackElement">
                     <BasicDefend />

@@ -40,6 +40,21 @@ export class Game extends Component {
     this.roundControllerKnight = this.roundControllerKnight.bind(this);
     this.roundControllerDragon = this.roundControllerDragon.bind(this);
     this.temporaryDragonTurn = this.temporaryDragonTurn.bind(this);
+    this.knightBasicAttack = this.knightBasicAttack.bind(this);
+  }
+
+  knightBasicAttack() {
+    const knightDoesDamage = () => {
+      var hit = Math.floor(Math.random() * (6 - 1)) + 1;
+      var damage = Math.floor(Math.random() * (10 - 1)) + 1;
+
+      if (hit > 2) {
+        console.log(hit + " KNIGHT HITS AND DEALS " + damage + " DAMAGE")
+      } else {
+        console.log(hit + " KNIGHT MISSES!")
+      }
+    }
+    return knightDoesDamage();
   }
 
   moveTheKnight() {
@@ -320,7 +335,9 @@ export class Game extends Component {
           keydown={ this.state.knightIsActive ? this.moveTheKnight() : null }
           knightIsActive={ this.state.knightIsActive }
         />
-        <Attacks />
+        <Attacks
+          knightBasicAttack={ this.knightBasicAttack }
+        />
         <Items />
         <button id="temporaryBtn" onClick={ this.temporaryDragonTurn }>Dragon Turn</button>
       </div>
